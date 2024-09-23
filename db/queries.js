@@ -6,7 +6,5 @@ async function getItems() {
 }
 
 module.exports = {
-  getAllMessages,
-  insertMessage,
-  getMessageByID
-}
+  getItems,
+};
