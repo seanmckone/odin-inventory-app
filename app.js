@@ -1,5 +1,6 @@
 const path = require("node:path");
 const assetsPath = path.join(__dirname, "public");
+const browserSync = require('browser-sync');
 
 const indexRouter = require('./routes/indexRouter');
 
@@ -17,3 +18,12 @@ app.use(express.static(assetsPath));
 app.use('/', indexRouter);
 
 app.listen(PORT, () => console.log(`listening at localhost:${PORT}`));
+
+browserSync.init({
+  proxy: `localhost:${PORT}`,                 // Local server URL
+  files: ['views/**/*.ejs', 'public/**/*.*'], // Paths to watch
+  port: PORT + 1,                             // Proxy port
+  open: false,                                // Don't open new tab on JS change
+  injectChanges: true,                        
+  notify: false,                              // Don't show BrowserSync notifications
+});
