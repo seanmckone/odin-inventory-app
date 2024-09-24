@@ -1,0 +1,43 @@
+*,
+html {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+  /* Light and Dark mode main text color */
+  --text-light: #000000;
+  --text-dark: #f2f2f2;
+
+  /* Light and Dark mode alternate text color */
+  --alt-text-light: #8c8c8c;
+  --alt-text-dark: #a8a8a8;
+
+  /* Light and Dark mode warning text color */
+  --warning-text-light: #ee1414;
+  --warning-text-dark: #ff6161;
+
+  /* Light and Dark mode search bar color */
+  --search-bar-light: #b0b0b0;
+  --search-bar-dark: #b0b0b0;
+
+  /* Light and Dark mode main background color */
+  --main-bg-light: #ececec;
+  --main-bg-dark: #2e2e2e;
+
+  /* Light and Dark mode alt background color */
+  --alt-bg-light: #ffffff;
+  --main-bg-dark: #404040;
+
+  /* Light and Dark mode "in stock" button color */
+  --in-stock-light: #bdd4ff;
+  --in-stock-light: #bdd4ff; /* TODO */
+
+  /* Light and Dark mode "low stock" button color */
+  --in-stock-light: #ffdc5f;
+  --in-stock-light: #ffdc5f; /* TODO */
+
+  /* Light and Dark mode "out of stock" button color */
+  --in-stock-light: #ff8d8d;
+  --in-stock-light: #ff8d8d; /* TODO */
+}
