@@ -5,6 +5,9 @@ html {
 }
 
 :root {
+  /* Current color theme */
+  color-scheme: light;
+
   /* Light and Dark mode main text color */
   --text-light: #000000;
   --text-dark: #f2f2f2;
@@ -27,7 +30,7 @@ html {
 
   /* Light and Dark mode alt background color */
   --alt-bg-light: #ffffff;
-  --main-bg-dark: #404040;
+  --alt-bg-dark: #404040;
 
   /* Light and Dark mode "in stock" button color */
   --in-stock-light: #bdd4ff;
@@ -40,4 +43,51 @@ html {
   /* Light and Dark mode "out of stock" button color */
   --in-stock-light: #ff8d8d;
   --in-stock-light: #ff8d8d; /* TODO */
+}
+
+a:link {
+  color: inherit;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+body {
+  background-color: light-dark(var(--main-bg-light), var(--main-bg-dark));
+  color: light-dark(var(--text-light), var(--text-dark));
+}
+
+h1,
+h2,
+h3 {
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+#sidebar {
+  background-color: light-dark(var(--alt-bg-light), var(--alt-bg-dark));
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100vh;
+  padding: 20px;
+  width: 300px;
+}
+
+.sidebar-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-left: 15px;
+}
+
+.sidebar-link.underlined {
+  text-decoration: underline;
 }
