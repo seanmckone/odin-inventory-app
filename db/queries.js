@@ -3,7 +3,7 @@ const pool = require("./pool");
 async function getItems() {
   const { rows } = await pool.query(
     `
-    SELECT items.name, items.sku, items.upc, items.image_url,
+    SELECT items.id, items.name, items.sku, items.upc, items.image_url,items.price, items.stock_count, 
       sizes.name AS kb_size, 
       brands.name AS kb_brand,
       switches.name AS kb_switch,
