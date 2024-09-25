@@ -1,0 +1,10 @@
+<a class="item" href="item/<%= item.id %>">
+   <img src=<%= item.image_url %>>
+   <div class="item-info">
+    <p><%= item.name %></p>
+    <div class="item-info-lower">
+      <p>$<%= item.price %></p>
+      <p class="in-stock-count">In Stock: <%= item.stock_count %></p>
+    </div>
+  </div>
+</a>

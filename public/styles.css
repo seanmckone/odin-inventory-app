@@ -1,11 +1,15 @@
 * {
   box-sizing: border-box;
+}
+
+html,
+body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
 :root {
   /* Current color theme */
-  color-scheme: light;
+  color-scheme: dark;
 
   /* Light and Dark mode main text color */
   --text-light: #000000;
@@ -60,6 +64,7 @@ a:link {
 body {
   background-color: light-dark(var(--main-bg-light), var(--main-bg-dark));
   color: light-dark(var(--text-light), var(--text-dark));
+  margin: 40px;
 }
 
 button {
@@ -123,6 +128,44 @@ h3 {
 .icon {
   width: 20px;
   height: 20px;
+}
+
+.in-stock-count {
+  color: light-dark(var(--alt-text-light), var(--alt-text-dark));
+}
+
+.item {
+  background-color: light-dark(var(--alt-bg-light), var(--alt-bg-dark));
+  border-radius: var(--app-border-radius);
+  display: flex;
+  flex-direction: column;
+
+  height: 400px;
+  width: 250px;
+}
+
+.item:hover {
+  outline: 2px solid light-dark(var(--search-bar-light), var(--search-bar-dark));
+}
+
+.item img {
+  height: 250px;
+  object-fit: contain;
+  margin-top: 4px;
+}
+
+.item-info {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.item-info-lower {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .sidebar-section {
