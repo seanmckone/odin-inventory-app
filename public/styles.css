@@ -136,6 +136,29 @@ h3 {
   padding-right: 0px;
 }
 
+#item-header {
+  align-items: end;
+  display: flex;
+  flex-direction: row;
+  gap: 7px;
+}
+
+#item-img-barcode {
+  align-items: cenrter;
+  display: flex;
+  flex-direction: column;
+}
+
+#item-img-barcode img {
+  height: 350px;
+  object-fit: contain;
+  width: 350px;
+}
+
+#barcode {
+  background-color: transparent;
+}
+
 .icon {
   height: 20px;
   width: 20px;

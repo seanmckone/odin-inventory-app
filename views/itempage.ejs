@@ -7,14 +7,32 @@
     <link rel="icon" type="image/x-icon" href="/icons/package.svg" />
     <link rel="stylesheet" href="/reset.css" />
     <link rel="stylesheet" href="/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
   </head>
   <body>
     <%- include("components/sidebar") %>
     <div id="main">
       <%- include("components/searchbar") %>
-      <h1>Item</h1>
+      <div id="item-header">
+        <h1>Item</h1>
+        <a href="<%= item.id %>/edit">
+          <img class="icon" src="/icons/pencil.svg" />
+        </a>
+        <a href="<%= item.id %>/delete">
+          <img class="icon" src="/icons/trash-can.svg" />
+        </a>
+      </div>
       <div id="item-display">
-        <p><%= item.name %></p>
+        <div id="item-img-barcode">
+          <img src=<%= item.image_url %>>
+          <svg id="barcode"></svg>
+          <script>
+            // Generate the barcode when the DOM is loaded
+            document.addEventListener('DOMContentLoaded', function() {
+                JsBarcode("#barcode", <%= item.upc %>, {background: "transparent"});
+            });
+        </script>
+        </div>
       </div>
     </div>
   </body>
