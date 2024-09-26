@@ -1,7 +1,9 @@
-async function getItems(req, res) {
-  //const items = await db.getItems();
+const db = require("../db/queries");
 
-  res.render("index");
+async function getItems(req, res) {
+  const items = await db.getAllItems();
+
+  res.render("index", { items: items });
 }
 
 module.exports = { getItems };

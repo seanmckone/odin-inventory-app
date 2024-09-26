@@ -1,6 +1,7 @@
 const pool = require("./pool");
 
-async function getItems() {
+// Return all items from database
+async function getAllItems() {
   const { rows } = await pool.query(
     `
     SELECT items.id, items.name, items.sku, items.upc, items.image_url,items.price, items.stock_count, 
@@ -44,6 +45,6 @@ async function getItemById(id) {
 }
 
 module.exports = {
-  getItems,
+  getAllItems,
   getItemById,
 };
