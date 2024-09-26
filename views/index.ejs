@@ -8,6 +8,14 @@
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <h1>Test</h1>
+    <%- include("components/sidebar") %>
+    <div id="main">
+      <%- include("components/searchbar") %>
+      <div id="item-display">
+        <% for(item of items) { %>
+          <%- include("components/item", {item: item}) %>
+        <% } %>
+      </div>
+    </div>
   </body>
 </html>
