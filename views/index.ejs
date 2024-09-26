@@ -12,6 +12,7 @@
     <%- include("components/sidebar") %>
     <div id="main">
       <%- include("components/searchbar") %>
+      <h1>Dashboard</h1>
       <div id="items-display">
         <% for(item of items) { %>
           <%- include("components/item", {item: item}) %>
