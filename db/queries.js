@@ -15,21 +15,11 @@ async function getItems() {
     INNER JOIN switches ON items.switch_id = switches.id
     INNER JOIN profiles ON items.profile_id = profiles.id
     INNER JOIN case_materials ON items.case_material_id = case_materials.id;
-    `
-  );
-  return rows;
-}
-
-async function getCategoryItems(categoryName) {
-  const { rows } = await pool.query(
-    `
-    SELECT name FROM ${categoryName};
-    `
+    `,
   );
   return rows;
 }
 
 module.exports = {
   getItems,
-  getCategoryItems,
 };
