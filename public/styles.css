@@ -61,6 +61,10 @@ a:link {
   text-decoration: none;
 }
 
+a:visited {
+  color: inherit;
+}
+
 body {
   background-color: light-dark(var(--main-bg-light), var(--main-bg-dark));
   color: light-dark(var(--text-light), var(--text-dark));
