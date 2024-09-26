@@ -23,7 +23,7 @@ async function getAllItems() {
 
 // Return specified (by id) item from database
 async function getItemById(id) {
-  const { row } = await pool.query(
+  const { rows } = await pool.query(
     `
     SELECT items.id, items.name, items.sku, items.upc, items.image_url,items.price, items.stock_count, 
       sizes.name AS kb_size, 
@@ -41,7 +41,7 @@ async function getItemById(id) {
     `,
     [id],
   );
-  return row;
+  return rows.length > 0 ? rows[0] : null;
 }
 
 module.exports = {
