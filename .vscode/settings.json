@@ -5,5 +5,5 @@
   "eslint.validate": ["javascript"],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "javascript.suggestionActions.enabled": false,
-  "cSpell.words": ["Gateron", "Kailh", "Keychron", "Varmilo"]
+  "cSpell.words": ["Gateron", "itempage", "Kailh", "Keychron", "Varmilo"]
 }
