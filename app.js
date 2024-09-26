@@ -3,10 +3,10 @@ const assetsPath = path.join(__dirname, "public");
 const browserSync = require("browser-sync");
 
 const indexRouter = require("./routes/indexRouter");
+const itemPageRouter = require("./routes/itemPageRouter");
 
 const express = require("express");
 const app = express();
-
 const PORT = 8080;
 
 app.set("views", path.join(__dirname, "views"));
@@ -15,6 +15,7 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(assetsPath));
 
+app.use("/item", itemPageRouter);
 app.use("/", indexRouter);
 
 app.listen(PORT, () => console.log(`listening at localhost:${PORT}`));
