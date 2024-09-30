@@ -160,6 +160,7 @@ h4 {
 }
 
 #item-img-barcode img {
+  background-color: white;
   height: 350px;
   max-width: 350px;
   object-fit: contain;
@@ -199,6 +200,7 @@ h4 {
 }
 
 .item img {
+  background-color: white;
   height: 250px;
   margin-top: 4px;
   object-fit: contain;
