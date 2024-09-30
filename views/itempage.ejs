@@ -29,9 +29,27 @@
           <script>
             // Generate the barcode when the DOM is loaded
             document.addEventListener('DOMContentLoaded', function() {
-                JsBarcode("#barcode", <%= item.upc %>, {background: "transparent"});
+                JsBarcode("#barcode", <%- JSON.stringify(item.upc) %>, {background: "transparent"});
             });
-        </script>
+          </script>
+        </div>
+        <div id="item-text">
+          <h4><%= item.name %></h4>
+          <div>
+            <p>SKU: <%= item.sku %></p>
+            <p>UPC: <%= item.upc %></p>
+          </div>
+          <div>
+            <p>Price: $<%= item.price %></p>
+            <p>In Stock: <%= item.stock_count %></p>
+          </div>
+          <div>
+            <p>Size: <%= item.kb_size %></p>
+            <p>Brand: <%= item.kb_brand %></p>
+            <p>Switch: <%= item.kb_switch %></p>
+            <p>Profile: <%= item.kb_profile %></p>
+            <p>Case Material: <%= item.kb_case_material %></p>
+          </div>
         </div>
       </div>
     </div>

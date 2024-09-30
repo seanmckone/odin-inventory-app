@@ -93,6 +93,10 @@ h3 {
   font-size: 20px;
 }
 
+h4 {
+  font-size: 20px;
+}
+
 #sidebar {
   background-color: light-dark(var(--alt-bg-light), var(--alt-bg-dark));
   display: flex;
@@ -143,20 +147,32 @@ h3 {
   gap: 7px;
 }
 
+#item-display {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
 #item-img-barcode {
-  align-items: cenrter;
+  align-items: center;
   display: flex;
   flex-direction: column;
 }
 
 #item-img-barcode img {
   height: 350px;
+  max-width: 350px;
   object-fit: contain;
-  width: 350px;
 }
 
 #barcode {
   background-color: transparent;
+}
+
+#item-text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .icon {
