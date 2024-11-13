@@ -194,10 +194,12 @@ h4 {
   background-color: light-dark(var(--alt-bg-light), var(--alt-bg-dark));
   border-radius: var(--app-border-radius);
   display: flex;
+  flex: 1 1 200px;
   flex-direction: column;
 
   height: 400px;
-  width: 250px;
+  max-width: 250px;
+  min-width: 200px;
 }
 
 .item:hover {
@@ -247,6 +249,7 @@ h4 {
 
 #items-display {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
@@ -261,5 +264,8 @@ h4 {
 @media (max-width: 750px) {
   #sidebar {
     display: none;
+  }
+  #items-display {
+    justify-content: center;
   }
 }
