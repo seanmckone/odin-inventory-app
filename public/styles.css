@@ -163,7 +163,6 @@ h4 {
 #item-img-barcode img {
   background-color: white;
   height: 350px;
-  height: auto;
   max-width: 350px;
   object-fit: contain;
   width: 100%;
