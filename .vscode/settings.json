@@ -6,6 +6,7 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "javascript.suggestionActions.enabled": false,
   "cSpell.words": [
+    "categorylistpage",
     "Gateron",
     "itempage",
     "Kailh",
