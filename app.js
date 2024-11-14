@@ -5,6 +5,7 @@ const browserSync = require("browser-sync");
 const indexRouter = require("./routes/indexRouter");
 const itemPageRouter = require("./routes/itemPageRouter");
 const searchRouter = require("./routes/searchRouter");
+const categoryListRouter = require("./routes/categoryListRouter");
 
 const express = require("express");
 const app = express();
@@ -18,6 +19,7 @@ app.use(express.static(assetsPath));
 
 app.use("/item", itemPageRouter);
 app.use("/search", searchRouter);
+app.use("/category", categoryListRouter);
 app.use("/", indexRouter);
 
 app.listen(PORT, () => console.log(`listening at localhost:${PORT}`));

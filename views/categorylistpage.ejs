@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= name %> Options</title>
+    <link rel="icon" type="image/x-icon" href="/icons/package.svg" />
+    <link rel="stylesheet" href="/reset.css" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <%- include("components/sidebar") %>
+    <div id="main">
+      <%- include("components/searchbar") %>
+      <h1><%= name %> Options</h1>
+      <div id="categories-list">
+        <% for(item of items) { %>
+          <a class="category-link" href="./<%= item.name %>"><%= item.name %></a>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>

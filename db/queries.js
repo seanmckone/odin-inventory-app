@@ -67,8 +67,30 @@ async function getItemByName(name) {
   return rows;
 }
 
+// Return list of subcategories from database
+async function getSubCategories(category) {
+  const validCategories = [
+    "sizes",
+    "brands",
+    "switches",
+    "profiles",
+    "case_materials",
+  ];
+  if (!validCategories.includes(category)) {
+    return null;
+  }
+
+  const { rows } = await pool.query(
+    `
+    SELECT name FROM ${category};
+    `,
+  );
+  return rows;
+}
+
 module.exports = {
   getAllItems,
   getItemById,
   getItemByName,
+  getSubCategories,
 };
