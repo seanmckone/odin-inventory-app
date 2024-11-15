@@ -15,7 +15,7 @@
       <h1><%= name %> Options</h1>
       <div id="categories-list">
         <% for(item of items) { %>
-          <a class="category-link" href="./<%= item.name %>"><%= item.name %></a>
+          <a class="category-link" href="./<%= category %>/<%= encodeURIComponent(item.name) %>"><%= item.name %></a>
         <% } %>
       </div>
     </div>

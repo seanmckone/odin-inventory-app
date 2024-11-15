@@ -27,7 +27,11 @@ async function getSubCategories(req, res) {
       break;
   }
 
-  res.render("categorylistpage", { items: items, name: name });
+  res.render("categorylistpage", {
+    items: items,
+    name: name,
+    category: req.params.category,
+  });
 }
 
 module.exports = { getSubCategories };
