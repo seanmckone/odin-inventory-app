@@ -35,7 +35,6 @@ async function getSubCategories(req, res) {
 }
 
 async function getItems(req, res) {
-  console.log(req.params.subcategory);
   const items = await db.getItemsBySize(req.params.subcategory);
   res.render("index", { items: items });
 }
