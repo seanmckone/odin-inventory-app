@@ -35,7 +35,26 @@ async function getSubCategories(req, res) {
 }
 
 async function getItems(req, res) {
-  const items = await db.getItemsBySize(req.params.subcategory);
+  let items = null;
+
+  switch (req.params.category) {
+    case "size":
+      items = await db.getItemsBySize(req.params.subcategory);
+      break;
+    case "brand":
+      items = await db.getItemsByBrand(req.params.subcategory);
+      break;
+    case "switch":
+      items = await db.getItemsBySwitch(req.params.subcategory);
+      break;
+    case "profile":
+      items = await db.getItemsByProfile(req.params.subcategory);
+      break;
+    case "case-material":
+      items = await db.getItemsByCaseMaterial(req.params.subcategory);
+      break;
+  }
+
   res.render("index", { items: items });
 }
 
