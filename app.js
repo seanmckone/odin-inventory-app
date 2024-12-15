@@ -6,6 +6,7 @@ const indexRouter = require("./routes/indexRouter");
 const itemPageRouter = require("./routes/itemPageRouter");
 const searchRouter = require("./routes/searchRouter");
 const categoryListRouter = require("./routes/categoryListRouter");
+const addNewRouter = require("./routes/addNewRouter");
 
 const express = require("express");
 const app = express();
@@ -17,6 +18,7 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(assetsPath));
 
+app.use("/add-new", addNewRouter);
 app.use("/item", itemPageRouter);
 app.use("/search", searchRouter);
 app.use("/category", categoryListRouter);
