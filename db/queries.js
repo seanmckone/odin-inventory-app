@@ -104,7 +104,7 @@ async function getItemsBySize(size) {
     INNER JOIN switches ON items.switch_id = switches.id
     INNER JOIN profiles ON items.profile_id = profiles.id
     INNER JOIN case_materials ON items.case_material_id = case_materials.id
-    WHERE kb_size iLIKE '%' || $1 || '%';
+    WHERE sizes.name iLIKE '%' || $1 || '%';
     `,
     [size],
   );

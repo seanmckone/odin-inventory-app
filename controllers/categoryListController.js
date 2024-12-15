@@ -34,4 +34,10 @@ async function getSubCategories(req, res) {
   });
 }
 
-module.exports = { getSubCategories };
+async function getItems(req, res) {
+  console.log(req.params.subcategory);
+  const items = await db.getItemsBySize(req.params.subcategory);
+  res.render("index", { items: items });
+}
+
+module.exports = { getSubCategories, getItems };
