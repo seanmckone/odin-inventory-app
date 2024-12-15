@@ -9,7 +9,7 @@ body {
 
 :root {
   /* Current color theme */
-  color-scheme: light;
+  color-scheme: dark;
 
   /* Light and Dark mode main text color */
   --text-light: #000000;
@@ -223,7 +223,9 @@ h4 {
 
 .item img {
   background-color: white;
-  margin-top: 4px;
+  border-top-left-radius: var(--app-border-radius);
+  border-top-right-radius: var(--app-border-radius);
+  margin-top: 0px;
   min-height: 250px;
   object-fit: contain;
 }
