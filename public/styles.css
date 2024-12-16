@@ -9,7 +9,7 @@ body {
 
 :root {
   /* Current color theme */
-  color-scheme: dark;
+  color-scheme: light;
 
   /* Light and Dark mode main text color */
   --text-light: #000000;
@@ -264,7 +264,43 @@ h4 {
   text-decoration: underline;
 }
 
+.stock-button {
+  align-items: center;
+  border-radius: var(--app-border-radius);
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  width: 250px;
+}
+
+.stock-button img {
+  width: 20px;
+}
+
+.stock-button p {
+  color: var(--text-light);
+  font-size: 18px;
+}
+
+#in-stock-button {
+  background-color: light-dark(var(--in-stock-light), var(--in-stock-dark));
+}
+
+#low-stock-button {
+  background-color: light-dark(var(--low-stock-light), var(--low-stock-dark));
+}
+
+#out-stock-button {
+  background-color: light-dark(var(--out-stock-light), var(--out-stock-dark));
+}
+
 #items-display {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+#stock-buttons-display {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
