@@ -7,6 +7,7 @@ const itemPageRouter = require("./routes/itemPageRouter");
 const searchRouter = require("./routes/searchRouter");
 const categoryListRouter = require("./routes/categoryListRouter");
 const addNewRouter = require("./routes/addNewRouter");
+const stockRouter = require("./routes/stockRouter");
 
 const express = require("express");
 const app = express();
@@ -22,6 +23,7 @@ app.use("/add-new", addNewRouter);
 app.use("/item", itemPageRouter);
 app.use("/search", searchRouter);
 app.use("/category", categoryListRouter);
+app.use(stockRouter);
 app.use("/", indexRouter);
 
 app.listen(PORT, () => console.log(`listening at localhost:${PORT}`));

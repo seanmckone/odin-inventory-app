@@ -203,6 +203,113 @@ async function getItemsByCaseMaterial(caseMaterial) {
   return rows;
 }
 
+// Return number of products with items in stock
+async function getInStockCount() {
+  const result = await pool.query(
+    `
+    SELECT COUNT(*)
+    FROM items
+    WHERE items.stock_count > 0;
+    `,
+  );
+
+  return result.rows[0].count;
+}
+
+// Return number of products with item in stock below a certain count
+async function getLowStockCount(limit) {
+  const result = await pool.query(
+    `
+    SELECT COUNT(*)
+    FROM items
+    WHERE items.stock_count <= $1;
+    `,
+    [limit],
+  );
+
+  return result.rows[0].count;
+}
+
+// Return number of products that are out of stock
+async function getOutStockCount() {
+  const result = await pool.query(
+    `
+    SELECT COUNT(*)
+    FROM items
+    WHERE items.stock_count = 0;
+    `,
+  );
+
+  return result.rows[0].count;
+}
+
+// Return in stock items from database
+async function getInStockItems() {
+  const { rows } = await pool.query(
+    `
+    SELECT items.id, items.name, items.sku, items.upc, items.image_url,items.price, items.stock_count, 
+      sizes.name AS kb_size, 
+      brands.name AS kb_brand,
+      switches.name AS kb_switch,
+      profiles.name AS kb_profile,
+      case_materials.name AS kb_case_material
+    FROM items 
+    INNER JOIN sizes ON items.size_id = sizes.id 
+    INNER JOIN brands ON items.brand_id = brands.id
+    INNER JOIN switches ON items.switch_id = switches.id
+    INNER JOIN profiles ON items.profile_id = profiles.id
+    INNER JOIN case_materials ON items.case_material_id = case_materials.id
+    WHERE items.stock_count > 0;
+    `,
+  );
+  return rows;
+}
+
+// Return low stock items from database with stock below a certain count
+async function getLowStockItems(limit) {
+  const { rows } = await pool.query(
+    `
+    SELECT items.id, items.name, items.sku, items.upc, items.image_url,items.price, items.stock_count, 
+      sizes.name AS kb_size, 
+      brands.name AS kb_brand,
+      switches.name AS kb_switch,
+      profiles.name AS kb_profile,
+      case_materials.name AS kb_case_material
+    FROM items 
+    INNER JOIN sizes ON items.size_id = sizes.id 
+    INNER JOIN brands ON items.brand_id = brands.id
+    INNER JOIN switches ON items.switch_id = switches.id
+    INNER JOIN profiles ON items.profile_id = profiles.id
+    INNER JOIN case_materials ON items.case_material_id = case_materials.id
+    WHERE items.stock_count <= $1;
+    `,
+    [limit],
+  );
+  return rows;
+}
+
+// Return in stock items from database
+async function getOutStockItems() {
+  const { rows } = await pool.query(
+    `
+    SELECT items.id, items.name, items.sku, items.upc, items.image_url,items.price, items.stock_count, 
+      sizes.name AS kb_size, 
+      brands.name AS kb_brand,
+      switches.name AS kb_switch,
+      profiles.name AS kb_profile,
+      case_materials.name AS kb_case_material
+    FROM items 
+    INNER JOIN sizes ON items.size_id = sizes.id 
+    INNER JOIN brands ON items.brand_id = brands.id
+    INNER JOIN switches ON items.switch_id = switches.id
+    INNER JOIN profiles ON items.profile_id = profiles.id
+    INNER JOIN case_materials ON items.case_material_id = case_materials.id
+    WHERE items.stock_count = 0;
+    `,
+  );
+  return rows;
+}
+
 module.exports = {
   getAllItems,
   getItemById,
@@ -213,4 +320,10 @@ module.exports = {
   getItemsBySwitch,
   getItemsByProfile,
   getItemsByCaseMaterial,
+  getInStockCount,
+  getLowStockCount,
+  getOutStockCount,
+  getInStockItems,
+  getLowStockItems,
+  getOutStockItems,
 };
